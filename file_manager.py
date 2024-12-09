@@ -2,7 +2,6 @@ import os
 import shutil
 import time
 from pathlib import Path
-
 from send2trash import send2trash
 
 
@@ -75,7 +74,7 @@ def move_old_files_to_temp(folder_path, days_threshold):
         print("C'est recent tout ça dit moi ?")
 
 
-# Fonction principale pour combiner les fonctionnalités
+# Fonction principale pour combiner les fonctionnalités (pkoi je commente ça moi ???)
 def main():
     print("Choisis ton destin:")
     print("1. Analyse un fichier specifique")
