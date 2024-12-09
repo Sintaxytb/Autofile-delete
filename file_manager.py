@@ -2,7 +2,9 @@ import os
 import shutil
 import time
 from pathlib import Path
+
 from send2trash import send2trash
+
 
 def analyze_file(file_path):
     """
@@ -23,6 +25,7 @@ def analyze_file(file_path):
     print(f"Extension: {file_extension}")
     print(f"Last Accessed: {last_access_time}")
 
+
 def move_file_to_recycle_bin(file_path):
     """
     Move a specific file to the recycle bin.
@@ -33,6 +36,7 @@ def move_file_to_recycle_bin(file_path):
         print(f"Success: Le fichier '{file_path}' a ete envoyé a la poubelle.")
     except Exception as e:
         print(f"Error: Oups, ce n'est pas censé arriver, c'est arriver à cause de: {e}")
+
 
 def move_old_files_to_temp(folder_path, days_threshold):
     """
@@ -70,6 +74,7 @@ def move_old_files_to_temp(folder_path, days_threshold):
     else:
         print("C'est recent tout ça dit moi ?")
 
+
 # Main function to combine functionalities
 def main():
     print("Choisis ton destin:")
@@ -95,13 +100,15 @@ def main():
     elif choice == "3":
         folder_path = input("Envoie le path des fichiers a scanner ").strip()
         if os.path.exists(folder_path):
-            days_threshold = int(input("Met le nombre de jours pour que ce soit qualifié de vieux (comme ton papy) ").strip())
+            days_threshold = int(
+                input("Met le nombre de jours pour que ce soit qualifié de vieux (comme ton papy) ").strip())
             move_old_files_to_temp(folder_path, days_threshold)
         else:
             print("Il existe pas le fichier frr tia serré ?")
 
     else:
         print("J'en ai vu des cons mais toi... Ya marqué 1,2 et 3 pas 378 connard va")
+
 
 # Run the script
 if __name__ == "__main__":
