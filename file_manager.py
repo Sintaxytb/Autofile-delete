@@ -10,7 +10,7 @@ def analyze_file(file_path):
     :param file_path: Full path to the file to analyze.
     """
     if not os.path.exists(file_path):
-        print(f"Error: The file '{file_path}' does not exist.")
+        print(f"Le fichier '{file_path}' il existe pas chef tia serré ou quoi?")
         return
 
     file_size = os.path.getsize(file_path)  # Size in bytes
@@ -64,7 +64,7 @@ def move_old_files_to_temp(folder_path, days_threshold):
                 print(f"Error processing file {file}: {e}")
 
     if moved_files:
-        print(f"Moved {len(moved_files)} file(s) to temporary folder: {temp_folder}")
+        print(f"J'ai bougé {len(moved_files)} ici: {temp_folder}")
         for f in moved_files:
             print(f" - {f}")
     else:
@@ -79,11 +79,11 @@ def main():
     choice = input("Choisis aller j'ai pas tout ton temps (1/2/3): ")
 
     if choice == "1":
-        file_path = input("Met tout le chemin du fichier frerot: ").strip()
+        file_path = input("Met tout le chemin du fichier frerot : ").strip()
         analyze_file(file_path)
 
     elif choice == "2":
-        file_path = input("Azy donne le path, j'vais le graille: ").strip()
+        file_path = input("Azy donne le path, j'vais le graille : ").strip()
         if os.path.exists(file_path):
             analyze_file(file_path)  # Show details before moving
             confirm = input(f"T sûr tu veut bouger '{file_path}' a la poubelle ? (yes/no): ").strip().lower()
@@ -95,13 +95,13 @@ def main():
     elif choice == "3":
         folder_path = input("Envoie le path des fichiers a scanner ").strip()
         if os.path.exists(folder_path):
-            days_threshold = int(input("Met le nombre de jours pour que ce soit qualifié de vieux ").strip())
+            days_threshold = int(input("Met le nombre de jours pour que ce soit qualifié de vieux (comme ton papy) ").strip())
             move_old_files_to_temp(folder_path, days_threshold)
         else:
             print("Il existe pas le fichier frr tia serré ?")
 
     else:
-        print("J'ai dis 1; 2 ou 3 pas 250 hein...")
+        print("J'en ai vu des cons mais toi... Ya marqué 1,2 et 3 pas 378 connard va")
 
 # Run the script
 if __name__ == "__main__":
