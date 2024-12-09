@@ -8,16 +8,16 @@ from send2trash import send2trash
 
 def analyze_file(file_path):
     """
-    Analyze a single file and display its details.
+    Analyze un simple fichier et affiche ses propriétés
     :param file_path: Full path to the file to analyze.
     """
     if not os.path.exists(file_path):
         print(f"Le fichier '{file_path}' il existe pas chef tia serré ou quoi?")
         return
 
-    file_size = os.path.getsize(file_path)  # Size in bytes
+    file_size = os.path.getsize(file_path)  # Taille en bytes
     file_extension = os.path.splitext(file_path)[1]
-    last_access_time = time.ctime(os.path.getatime(file_path))  # Human-readable format
+    last_access_time = time.ctime(os.path.getatime(file_path))  # Un format que les humains comprennent prck on est trop con sayer
 
     print(f"File Analysis:")
     print(f"Path: {file_path}")
@@ -49,7 +49,7 @@ def move_old_files_to_temp(folder_path, days_threshold):
     temp_folder.mkdir(exist_ok=True)
 
     current_time = time.time()
-    age_threshold = days_threshold * 86400  # Convert days to seconds
+    age_threshold = days_threshold * 86400  # Convertis les jours en secondes prck il comprend aps sinon ce con
     moved_files = []
 
     for root, _, files in os.walk(folder_path):
@@ -75,7 +75,7 @@ def move_old_files_to_temp(folder_path, days_threshold):
         print("C'est recent tout ça dit moi ?")
 
 
-# Main function to combine functionalities
+# Fonction principale pour combiner les fonctionnalités
 def main():
     print("Choisis ton destin:")
     print("1. Analyse un fichier specifique")
@@ -90,7 +90,7 @@ def main():
     elif choice == "2":
         file_path = input("Azy donne le path, j'vais le graille : ").strip()
         if os.path.exists(file_path):
-            analyze_file(file_path)  # Show details before moving
+            analyze_file(file_path)  # Montre les détails (du fichiers pas de ta mère)
             confirm = input(f"T sûr tu veut bouger '{file_path}' a la poubelle ? (yes/no): ").strip().lower()
             if confirm == "yes":
                 move_file_to_recycle_bin(file_path)
@@ -110,6 +110,6 @@ def main():
         print("J'en ai vu des cons mais toi... Ya marqué 1,2 et 3 pas 378 connard va")
 
 
-# Run the script
+# FAIS TOURNER LE MOTEUR MARCEL
 if __name__ == "__main__":
     main()
